@@ -204,6 +204,19 @@ nav,
   display: none;
   position: relative;
 }
+#menu li.submenu > a::after {
+  content: ">";
+  color: #ec008c;
+  font: normal 700 30px monospace;
+  right: 24px;
+  position: absolute;
+  transform: rotate(90deg);
+  font-family: monospace;
+  top: 4px;
+}
+#menu li.submenu.open-submenu > a::after {
+  transform: rotate(-90deg);
+}
 #menu li ul,
 #menu li ul li {
   margin: 0;

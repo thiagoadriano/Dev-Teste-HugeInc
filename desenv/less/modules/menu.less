@@ -116,7 +116,22 @@ nav,
           visibility: hidden;
           display: none;
           position: relative;
+        }
+
+        &.submenu > a::after{
+          content: ">";
+          color: #ec008c;
+          font: normal 700 30px monospace;
+          right: 24px;
+          position: absolute;
+          transform: rotate(90deg);
+          font-family: monospace;
+          top: 4px;
         } 
+
+        &.submenu.open-submenu > a::after{
+          transform: rotate(-90deg);
+        }
     }
 }
 
