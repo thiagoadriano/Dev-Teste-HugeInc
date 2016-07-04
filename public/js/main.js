@@ -61,6 +61,7 @@ var Huge = Huge || {};
         var link = document.createElement("a");
         var texto = document.createTextNode(dados.label);
         link.setAttribute("href", dados.url);
+        link.setAttribute("title", "Run to: " + dados.label);
         link.appendChild(texto);
         liatual.appendChild(link);
     }
