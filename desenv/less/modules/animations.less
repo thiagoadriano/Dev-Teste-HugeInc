@@ -1,0 +1,85 @@
+@keyframes slider-menu{
+  from {
+    left: -200%;
+    visibility: hidden
+  }
+  to {
+    left: 0;
+    visibility: visible
+  }
+}
+@keyframes fade-in{
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+@keyframes slider-content{
+  from{
+    left:0;
+  }
+  to{
+    left: 75%;
+  }
+}
+@keyframes hidden{
+  from{
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes visible{
+  from{
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes openSubmenu{
+  from{
+    opacity: 0;
+    top: -40px;
+  }
+  to {
+    opacity: 1;
+    top: 0;
+  }
+}
+
+.fade-menu{
+  animation: fade-in .3s linear;
+  visibility: visible!important;
+  opacity: 1;
+  display: block!important;
+}
+.slider-menu{
+  animation: slider-menu .3s linear;
+  left: 0!important;
+  visibility: visible!important;
+}
+.slider-content{
+  animation: slider-content .3s linear;
+  left:75%!important;
+}
+.hidden{
+    animation: hidden .3s linear;
+    opacity: 0;
+    visibility: hidden;
+}
+.visible{
+  animation: visible .3s linear;
+  opacity: 1;
+  visibility: visible;
+}
+.open-submenu ul{
+  animation: openSubmenu .2s linear;
+  opacity: 1!important;
+  display: block!important;
+  top:0!important;
+  visibility: visible!important;
+}

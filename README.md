@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Huge Navigation Exercise
 
 ## Overview
@@ -105,3 +106,7 @@ Measurements are specified in pixels. Dimensions are fluid unless specified.
   * the logo and toggle button should “slide” from right to left
   * the close icon should change to the open icon
   * the mask should be hidden
+=======
+# teste-huge
+Teste para HugeInc
+>>>>>>> 57872c789812243bc41cc0dbf114ad6e0edd8e71
