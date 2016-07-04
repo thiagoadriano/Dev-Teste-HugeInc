@@ -30,6 +30,7 @@ var Huge = Huge || {};
             if(array[i].items.length){
                 G.childrenMenu(array[i], li)
             }else{
+                array[i].url = array[i].url.replace("#", '');
                 G.ItemMenu(array[i], li);
             }
 
@@ -47,6 +48,7 @@ var Huge = Huge || {};
         for(var i = 0, total = items.length; i < total; i++)
         {
             var li = document.createElement("li");
+            items[i].url = items[i].url.replace("#", '');
             G.ItemMenu(items[i], li);
             ul.appendChild(li);
         }

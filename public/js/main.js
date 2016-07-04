@@ -30,6 +30,7 @@ var Huge = Huge || {};
             if(array[i].items.length){
                 G.childrenMenu(array[i], li)
             }else{
+                array[i].url = array[i].url.replace("#", '');
                 G.ItemMenu(array[i], li);
             }
 
@@ -47,6 +48,7 @@ var Huge = Huge || {};
         for(var i = 0, total = items.length; i < total; i++)
         {
             var li = document.createElement("li");
+            items[i].url = items[i].url.replace("#", '');
             G.ItemMenu(items[i], li);
             ul.appendChild(li);
         }
@@ -114,14 +116,23 @@ var Huge = Huge || {};
             }
         });
     }
+
+    M.closeOut = function(event)
+    {
+        var click = event.target;
+        if(click.nodeName.toLowerCase() === 'div' && click.id === "shadow-menu"){
+            M.CloseModal();
+        }            
+    }
     M.init = function()
     {
         M.elBtnOpen.addEventListener('click', M.OpenMenu, false);
         M.elBtnClose.addEventListener('click', M.CloseModal, false);
-        M.submenu = Huge.Submenu.itemsSubMenu;
+        M.elBoxMenu.addEventListener('click', M.closeOut, false)
+        M.submenu = Huge.Submenu.getAllSubmenus();
     }
 
-})(Huge);
+})(Huge); 
 
 (function(Huge){
     var S = Huge.Submenu = {};
@@ -141,9 +152,23 @@ var Huge = Huge || {};
             if(el.className.indexOf('open-submenu') >= 0){
                 Huge.Util.RemoveClass(el, 'open-submenu');
             }else{
+                S.CloseSubMenus();
                 Huge.Util.setClass(el,'open-submenu');
             }
         },false);
+    }
+
+    S.CloseSubMenus = function(){
+        Huge.Util.each(S.itemsSubMenu, function(el){
+            if(el.className.indexOf('open') >= 0){
+                Huge.Util.RemoveClass(el, 'open-submenu');
+            }
+        });
+    }
+
+    S.getAllSubmenus = function()
+    {
+        return S.itemsSubMenu;
     }
 })(Huge);
 (function (Huge) {

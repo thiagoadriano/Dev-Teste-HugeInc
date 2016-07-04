@@ -47,11 +47,20 @@
             }
         });
     }
+
+    M.closeOut = function(event)
+    {
+        var click = event.target;
+        if(click.nodeName.toLowerCase() === 'div' && click.id === "shadow-menu"){
+            M.CloseModal();
+        }            
+    }
     M.init = function()
     {
         M.elBtnOpen.addEventListener('click', M.OpenMenu, false);
         M.elBtnClose.addEventListener('click', M.CloseModal, false);
-        M.submenu = Huge.Submenu.itemsSubMenu;
+        M.elBoxMenu.addEventListener('click', M.closeOut, false)
+        M.submenu = Huge.Submenu.getAllSubmenus();
     }
 
-})(Huge);
+})(Huge); 
