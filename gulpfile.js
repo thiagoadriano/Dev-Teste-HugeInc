@@ -33,7 +33,7 @@ gulp.task('buildJs', () => {
 gulp.task("buildCss", () => {
   return gulp.src('./public/styles/main.css')
           .pipe(cleanCSS())
-          .pipe(gulp.dest('./public/styles/css'));
+          .pipe(gulp.dest('./public/styles'));
 });
 
 gulp.task("build", ['buildJs', "buildCss"])
