@@ -234,6 +234,10 @@ nav,
 #menu li a:hover {
   background: #EEEEEE;
 }
+.shadow-visible {
+  opacity: 1;
+  visibility: visible!important;
+}
 @keyframes slider-menu {
   from {
     left: -200%;
@@ -286,6 +290,14 @@ nav,
     top: 0;
   }
 }
+@keyframes opacityMenu {
+  from {
+    background: #ec008c;
+  }
+  to {
+    background: rgba(236, 0, 140, 0.75);
+  }
+}
 .fade-menu {
   animation: fade-in 0.3s linear;
   visibility: visible!important;
@@ -317,6 +329,10 @@ nav,
   display: block!important;
   top: 0!important;
   visibility: visible!important;
+}
+.menu-opacity {
+  animation: opacityMenu .3s linear;
+  background: rgba(236, 0, 140, 0.75) !important;
 }
 @media (min-width: 767px) {
   #group-bnts-nav {

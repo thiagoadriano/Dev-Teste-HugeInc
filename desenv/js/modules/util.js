@@ -24,6 +24,28 @@
         list.splice(list.indexOf(classe), 1);
         el.className = list.join(" ");
     }
+
+    U.DesktopView = function(callback)
+    {
+        if(screen.width > 767){
+            callback();
+        }
+    }
+
+    U.scrollBg = function()
+    {
+        U.DesktopView(function(){
+            var el = document.querySelector("#menu");
+            var classe = "menu-opacity";
+            document.addEventListener('scroll', function(event) {
+                if(event.target.scrollingElement.scrollTop > 250){
+                    if(el.className.indexOf(classe) < 1) U.setClass(el,classe);
+                }else{
+                    U.RemoveClass(el,classe);
+                }
+            }, false);
+        });
+    }
     
 
 })(Huge);

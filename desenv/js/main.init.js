@@ -3,5 +3,6 @@ Huge.Util.ready(function(){
         Huge.MenuMobile.setElements("open-menu", "close-menu", "shadow-menu", "menu", "content", "content-all");
         Huge.Submenu.init();
         Huge.MenuMobile.init();
+        Huge.Util.scrollBg();
     });
 });

@@ -151,8 +151,10 @@ var Huge = Huge || {};
             var el = event.currentTarget;
             if(el.className.indexOf('open-submenu') >= 0){
                 Huge.Util.RemoveClass(el, 'open-submenu');
+                S.DesktopShadow(false);
             }else{
                 S.CloseSubMenus();
+                S.DesktopShadow(true);
                 Huge.Util.setClass(el,'open-submenu');
             }
         },false);
@@ -169,6 +171,18 @@ var Huge = Huge || {};
     S.getAllSubmenus = function()
     {
         return S.itemsSubMenu;
+    }
+
+    S.DesktopShadow = function (open) {
+        Huge.Util.DesktopView(function() {
+            var shadow = document.querySelector("#shadow-menu");
+            var classe = "shadow-visible"; 
+            if(open){
+                if(shadow.className.indexOf(classe) < 1) Huge.Util.setClass(shadow, classe);
+            }else{
+                Huge.Util.RemoveClass(shadow, classe);
+            }
+        });
     }
 })(Huge);
 (function (Huge) {
@@ -197,6 +211,28 @@ var Huge = Huge || {};
         list.splice(list.indexOf(classe), 1);
         el.className = list.join(" ");
     }
+
+    U.DesktopView = function(callback)
+    {
+        if(screen.width > 767){
+            callback();
+        }
+    }
+
+    U.scrollBg = function()
+    {
+        U.DesktopView(function(){
+            var el = document.querySelector("#menu");
+            var classe = "menu-opacity";
+            document.addEventListener('scroll', function(event) {
+                if(event.target.scrollingElement.scrollTop > 250){
+                    if(el.className.indexOf(classe) < 1) U.setClass(el,classe);
+                }else{
+                    U.RemoveClass(el,classe);
+                }
+            }, false);
+        });
+    }
     
 
 })(Huge);
@@ -205,5 +241,6 @@ Huge.Util.ready(function(){
         Huge.MenuMobile.setElements("open-menu", "close-menu", "shadow-menu", "menu", "content", "content-all");
         Huge.Submenu.init();
         Huge.MenuMobile.init();
+        Huge.Util.scrollBg();
     });
 });
